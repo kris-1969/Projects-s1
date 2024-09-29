@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Therapy Today</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="C:/Users/krish/Downloads/project hack/background.jpg" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Brandbe&display=swap" rel="stylesheet">
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../maincode.html">Home</a></li>
+                <li><a href="../Ambulance/ambtrack.html">Ambulance Tracking</a></li>
+                <li><a href="../Crisis Alert/crisis.html">Crisis Tracking</a></li>
+                <li><a href="../Slotbooking/slot.html">Slot Booking</a></li>
+                <li><a href="../Contact/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="login-icon"></div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <h2 class="map-title">Map of Nearby Ambulances</h2> <!-- Title added here -->
+        <div id="map"></div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Therapy Today | 123 Wellness St. | support@therapytoday.com | 123-456-7890</p>
+    </footer>
+
+    <!-- Leaflet JS for Map -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- Script to Initialize Map and Load Markers from JSON -->
+    <script>
+        var map;
+
+        // Function to initialize the map
+        function initializeMap(lat, lng) {
+            map = L.map('map').setView([lat, lng], 13); // User's location as the map center
+
+            // Adding OpenStreetMap tiles
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+        }
+
+        // Function to get user's location
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var lat = position.coords.latitude;
+                    var lng = position.coords.longitude;
+
+                    // Initialize the map with user's location
+                    initializeMap(lat, lng);
+
+                    // Load markers from the JSON file
+                    loadMarkers();
+                }, function() {
+                    alert("Error getting location.");
+                    initializeMap(51.505, -0.09); // Default to London
+                    loadMarkers(); // Load markers even if geolocation fails
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+                initializeMap(51.505, -0.09); // Default to London
+                loadMarkers();
+            }
+        }
+
+        // Function to load marker coordinates from the JSON file
+        function loadMarkers() {
+            fetch('markers.json') // Load the JSON file
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("Markers loaded successfully:", data); // Debugging log
+                    data.forEach(marker => {
+                        // Add a marker for each location in the JSON file
+                        var mapMarker = L.marker([marker.lat, marker.lng]).addTo(map);
+                        mapMarker.bindPopup(`<b>${marker.name}</b>`);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading the markers:', error);
+                });
+        }
+
+        // Automatically load map when the page is opened
+        document.addEventListener("DOMContentLoaded", function() {
+            var mapDiv = document.getElementById('map');
+            mapDiv.style.height = '50vh';  // Adjust the map height as needed
+            mapDiv.style.width = '100%';   // Full width map
+            
+            // Get the location and load the map
+            getLocation();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slotbooking - Therapy Today</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+      <nav class="header-font">
+        <ul>
+            <li><a href="../maincode.html">Home</a></li>
+            <li><a href="../Ambulance/ambtrack.html">Ambulance Tracking</a></li>
+            <li><a href="../Crisis Alert/crisis.html">Crisis Tracking</a></li>
+            <li><a href="#">Slot Booking</a></li>
+            <li><a href="../Contact/contact.html">Contact</a></li> <!-- Link to the Contact page -->
+
+        </ul>
+    </nav>
+        <div class="login-icon"></div>
+    </header>
+    <div class="wrapper">
+      <div class="container">
+        <h1>Book Your Appointment</h1>
+        <form id="booking-form">
+            <label for="date">Select Booking Date:</label>
+            <input type="date" id="date" name="date" required>
+  
+            <label for="hospital">Preferred Hospital:</label>
+            <select id="hospital" name="hospital" required>
+                <option value="">Select a hospital</option>
+                <option value="hospital1">Hospital 1</option>
+                <option value="hospital2">Hospital 2</option>
+                <option value="hospital3">Hospital 3</option>
+            </select>
+  
+            <label for="doctor">Preferred Doctor:</label>
+            <select id="doctor" name="doctor" required>
+                <option value="">Select a doctor</option>
+                <option value="doctor1">Doctor 1</option>
+                <option value="doctor2">Doctor 2</option>
+                <option value="doctor3">Doctor 3</option>
+            </select>
+  
+            <button type="submit">Book Appointment</button>
+        </form>
+  
+        <div id="confirmation" class="hidden">
+            <h2>Appointment Confirmed!</h2>
+            <p id="confirmation-message"></p>
+        </div>
+    </div>
+    </div>
+
+    <footer>
+        <p>Therapy Today | 123 Wellness St. | support@therapytoday.com | 123-456-7890</p>
+    </footer>
+</body>
+</html>

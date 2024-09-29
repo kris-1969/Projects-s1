@@ -1,0 +1,93 @@
+
+.click{
+    z-index:-1;
+    opacity: 50;;
+    position: absolute;
+    top: 350px;
+    left: 400px
+}
+body {
+    margin: 0;
+    font-family: 'Brandbe', sans-serif; /* Update the font-family to Bandbe */
+    background-color: aliceblue;
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent repeating the image */
+    height: 100vh; /* Set height to full viewport height */
+}
+
+/* Other styles remain unchanged */
+
+
+/* Other styles remain unchanged */
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(76, 175, 80, 0.8); /* Semi-transparent background for header */
+    padding: 10px 20px;
+}
+
+nav {
+    flex-grow: 1;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.login-icon {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    border: 2px solid #4CAF50;
+    cursor: pointer;
+}
+
+h1 {
+    font-weight: 700;
+    margin: 40px 0;
+    font-family:Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: #4CAF50;
+    font-size: 4rem; /* Adjust font size as needed */
+}
+
+.content{
+    font-weight: 700;
+    margin: 40px 0;
+    text-align: center;
+    color: #4CAF50;
+    font-size: 4rem;
+}
+
+main {
+    min-height: 100vh; /* Ensure main content occupies at least full viewport height */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center the content vertically */
+}
+
+footer {
+    background-color: black; /* Black footer background */
+    color: white; /* White text color */
+    text-align: center; /* Center text */
+    padding: 20px; /* Padding for footer */
+}

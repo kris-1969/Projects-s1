@@ -1,0 +1,151 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+/* Body and Background */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: aliceblue;
+    height: 100vh; /* Set height to full viewport height */
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(76, 175, 80, 0.8); /* Semi-transparent background for header */
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.header-font {
+    font-size: 1.8rem;
+    font-weight: 100;
+}
+
+nav {
+    flex-grow: 1;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Login Icon */
+.login-icon {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #4CAF50;
+    cursor: pointer;
+}
+
+/* Main Content */
+main {
+    padding-top: 80px; /* Push content down to avoid header overlap */
+    text-align: center;
+    padding: 40px;
+}
+
+h1 {
+    font-weight: 700;
+    color: #4CAF50;
+    font-size: 4rem; /* Adjust font size as needed */
+    margin-bottom: 20px;
+}
+
+/* Crisis Table Styling */
+.crisis-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    animation: fadeInUp 1s ease-out; /* Animation on table load */
+}
+
+.crisis-table th, .crisis-table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 1.6rem;
+}
+
+.crisis-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.crisis-table img.table-img {
+    width: 100px;
+    height: auto;
+    transition: transform 0.3s ease; /* Add hover effect on images */
+}
+
+.crisis-table img.table-img:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Footer */
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    margin-top: 20px;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .crisis-table th, .crisis-table td {
+        font-size: 1.4rem;
+    }
+
+    .crisis-table img.table-img {
+        width: 80px;
+    }
+
+    nav ul {
+        gap: 10px;
+    }
+}
