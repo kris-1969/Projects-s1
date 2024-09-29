@@ -1,0 +1,163 @@
+/* General styles */
+body {
+    margin: 0;
+    font-family: 'Brandbe', sans-serif;
+    background-color: aliceblue;
+    background-image: url('background.jpg'); /* Add the background image */
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    animation: fadeInBody 1.5s ease-in-out; /* Page fade-in effect */
+}
+
+/* Fade-in effect for the body */
+@keyframes fadeInBody {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Header styles with transition effects */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(76, 175, 80, 0.8);
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Header shrink effect on scroll */
+header.scrolled {
+    background-color: rgba(76, 175, 80, 0.9); /* Darken on scroll */
+    transform: scale(0.95); /* Slightly shrink on scroll */
+}
+
+/* Navigation styles */
+nav {
+    flex-grow: 1;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: #FFDD57; /* Change color on hover */
+}
+
+/* Login icon animation */
+.login-icon {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    border: 2px solid #4CAF50;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.login-icon:hover {
+    transform: rotate(360deg); /* Rotate on hover */
+}
+
+/* Header title animation */
+h1 {
+    font-weight: 700;
+    margin: 40px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 4rem;
+    animation: slideIn 1s ease forwards;
+    opacity: 0;
+}
+
+/* Slide-in effect for the title */
+@keyframes slideIn {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.content {
+    font-weight: 700;
+    margin: 40px 0;
+    text-align: center;
+    color:#FFFFFF;
+    font-size: 2rem;
+    animation: fadeInUp 1.5s ease forwards;
+    opacity: 0;
+}
+
+/* Content fade-up effect */
+@keyframes fadeInUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Button animations */
+button.click {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+button.click:hover {
+    background-color: #45a049;
+    transform: translateY(-5px);
+}
+
+button.click:active {
+    transform: translateY(2px);
+}
+
+/* Footer section */
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    animation: fadeInUp 2s ease forwards;
+    opacity: 0;
+}
